@@ -42,6 +42,7 @@
 #include "boards.h"
 #include "simple_hal.h"
 #include "app_timer.h"
+#include "nrf_delay.h"
 
 /* Core */
 #include "nrf_mesh_configure.h"
@@ -69,7 +70,7 @@
 #include "light_switch_example_common.h"
 #include "app_onoff.h"
 
-#define ONOFF_SERVER_0_LED          (BSP_LED_0)
+#define ONOFF_SERVER_0_LED          (11)
 
 
 static bool m_device_provisioned;
@@ -99,7 +100,6 @@ static void app_onoff_server_set_cb(const app_onoff_server_t * p_server, bool on
 static void app_onoff_server_get_cb(const app_onoff_server_t * p_server, bool * p_present_onoff)
 {
     /* Resolve the server instance here if required, this example uses only 1 instance. */
-
     *p_present_onoff = hal_led_pin_get(ONOFF_SERVER_0_LED);
 }
 
@@ -245,6 +245,7 @@ static void start(void)
 int main(void)
 {
     initialize();
+    nrf_gpio_cfg_output(ONOFF_SERVER_0_LED);
     execution_start(start);
 
     for (;;)
