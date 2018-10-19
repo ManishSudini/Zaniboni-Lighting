@@ -17,4 +17,4 @@ We changed the variable ONOFF_SERVER_LED and configured it as pin 11(Input to th
 We also need to initialize the pin 11 as an output pin which was done in the main() function in line 248.
 
 
-These initializations and configurations are not a long term solution. We need to develop an custom board design incorporating all the future changes.
+These initializations and configurations are not a long term solution. We need to develop an custom board design incorporating all future changes.
